@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  # GET PORTFOLIO /users/1
+  def portfolio
+
+    @portfolio = User.find(params[:id]).portfolio_valuation
+
+    @test_portfolio = User.find(params[:id]).owned_trends
+
+    render json: @portfolio
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
