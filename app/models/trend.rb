@@ -1,6 +1,6 @@
 require 'twitter'
 
-class Tweet < ApplicationRecord
+class Trend < ApplicationRecord
 
     def self.fetch_trends
         
@@ -10,9 +10,12 @@ class Tweet < ApplicationRecord
             config.access_token         = "4046571867-QMWcslJhGF21ZgbABtqs4f1E8O07fSOKbW11oap"
             config.access_token_secret  = "xZLoJsjuboWLGdO8m8gB7U2q3JrBVtIcZdN36IfzMSnE8"
         end
-
-        client.trends(id = 23424975)
+    
+        trends = client.trends(id = 23424975)
+        trends.attrs[:trends].each_with_index{|trd, idx| trd[:rank]=idx+1 }
+        trends
     end
 
-end
+    # Trend.fetch_trends.attrs[:trends].map.with_index{|t, idx| t[:name] idx }
 
+end

@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create(username: 'User1', account_balance: 0)
+
+OwnedTrend.create(name: '#OddSocksDay', tweet_volume: '6000', user_id: 1, initial_rank: 5, current_rank: 5, valuation: 1.0)
+OwnedTrend.create(name: 'Hillary Clinton', tweet_volume: '12000', user_id: 1, initial_rank: 4, current_rank: 4, valuation: 1.0)

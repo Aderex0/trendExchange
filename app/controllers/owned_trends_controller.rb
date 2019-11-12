@@ -1,0 +1,4 @@
+class OwnedTrendsController < ApplicationController
+    
+
+end
