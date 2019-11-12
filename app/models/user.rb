@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :owned_trends
+    has_secure_password
     
     def portfolio_valuation
 
