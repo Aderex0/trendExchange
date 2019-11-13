@@ -39,16 +39,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_103037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tweets", force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.boolean "promoted_content"
-    t.string "query"
-    t.string "tweet_volume"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
