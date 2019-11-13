@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(username: 'User1', account_balance: 0)
+User.create(username: 'User1', password: 'abcd', account_balance: 0)
 
-OwnedTrend.create(name: '#OddSocksDay', tweet_volume: '6000', user_id: 1, initial_rank: 5, current_rank: 5, valuation: 1.0)
-OwnedTrend.create(name: 'Hillary Clinton', tweet_volume: '12000', user_id: 1, initial_rank: 4, current_rank: 4, valuation: 1.0)
+OwnedTrend.create(name: 'Sonic', initial_tweet_volume: 200000, user_id: 1, initial_rank: 5, initial_valuation: 1.0, quantity_trends_purchased: 2)
+OwnedTrend.create(name: 'Frank Dobson', initial_tweet_volume: nil, user_id: 1, initial_rank: 2, initial_valuation: 1.0, quantity_trends_purchased: 2)
