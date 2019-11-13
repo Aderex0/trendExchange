@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    # byebug
     @user = User.new(user_params)
     if @user.save
       render json: @user, status: :created, location: @user
@@ -47,7 +47,17 @@ class UsersController < ApplicationController
     render json: @portfolio
   end
 
+  def login
+    @user = User.find_by(username: params[:username])
+    if @user and @user.authenticate(params[:password])
+      render json: { username: @user.username, id: @user.id, account_balance: @user.account_balance, token: issue_token({ id: @user.id })}
+    else
+      render json: { error: "Username/password combination invalid" }, status: 401
+    end
+  end
+
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -55,6 +65,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.require(:user).permit(:username, :password_digest, :account_balance)
+      params.require(:user).permit(:username, :password, :account_balance)
     end
 end
